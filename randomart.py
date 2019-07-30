@@ -1,20 +1,22 @@
 from tkinter import *
 import random
 
+# Draws Tkinter window
 window = Tk()
 window.title("Random Art")
 window.resizable(0, 0)
 window.configure(background="white")
-window.geometry("500x500")
+window.geometry("450x500")
 
+# Draws Tkinter canvas
 canvas = Canvas(window, height=450, width=500, bg="white")
 canvas.pack()
 
-def shape():
+def shape():  # Function for generating the shape
 
-    canvas.delete("all")
+    canvas.delete("all")  # Deletes previous art
 
-    layers = random.randint(1, 10)
+    layers = random.randint(1, 10)  # Chooses a random number of polygons to generate
     new = 0
 
     while new != layers:
@@ -27,6 +29,6 @@ def shape():
         new += 1
 
 genbutt = Button(window, text="Generate", bg="white", fg="black", font="arial 15 bold", command=shape)
-genbutt.pack()
+genbutt.pack(pady=10)
 
 window.mainloop()
