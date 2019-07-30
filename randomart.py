@@ -12,10 +12,21 @@ canvas.pack()
 
 def shape():
 
-    pointnum = random.randint(1, 100)*2
-    points = random.sample(range(1, 450), pointnum)
-    colors = ["red", "blue", "orange", "black"]
-    canvas.create_polygon(points, outline=random.choice(colors), fill=random.choice(colors))
+    canvas.delete("all")
 
-shape()
+    layers = random.randint(1, 10)
+    new = 0
+
+    while new != layers:
+        pointnum = random.randint(1, 100) * 2
+        points = random.sample(range(1, 450), pointnum)
+        colors = ["red", "blue", "orange", "black", "violet", "green", "yellow", "white"]
+
+        canvas.create_polygon(points, outline=random.choice(colors), fill=random.choice(colors))
+
+        new += 1
+
+genbutt = Button(window, text="Generate", bg="white", fg="black", font="arial 15 bold", command=shape)
+genbutt.pack()
+
 window.mainloop()
