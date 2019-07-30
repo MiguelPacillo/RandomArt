@@ -22,9 +22,19 @@ def shape():  # Function for generating the shape
     while new != layers:
         pointnum = random.randint(1, 100) * 2
         points = random.sample(range(1, 450), pointnum)
-        colors = ["red", "blue", "orange", "black", "violet", "green", "yellow", "white"]
 
-        canvas.create_polygon(points, outline=random.choice(colors), fill=random.choice(colors))
+        ccode = 0
+        hexchars = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+
+        fillcolor = "#"
+        bordcolor = "#"
+
+        while ccode != 6:  # This generates a random hexadecimal color code for both the fill and border
+            fillcolor = fillcolor + random.choice(hexchars)
+            bordcolor = bordcolor + random.choice(hexchars)
+            ccode += 1
+
+        canvas.create_polygon(points, outline=bordcolor, fill=fillcolor)
 
         new += 1
 
